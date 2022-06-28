@@ -39,9 +39,9 @@ const Home: NextPage = () => {
             <>
               <div className='w-64 text-xl text-center rounded-md'>
                 <Image
+                  width={256}
+                  height={256}
                   src={`${firstPokemon.data?.sprites.front_default}`}
-                  className='h-64'
-                  height='64'
                 />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
@@ -55,8 +55,9 @@ const Home: NextPage = () => {
               <h1 className='grid items-center justify-items-center'>VS</h1>
               <div className='w-64 text-xl text-center rounded-md '>
                 <Image
+                  width={256}
+                  height={256}
                   src={`${secondPokemon.data?.sprites.front_default}`}
-                  className='h-64'
                 />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>
