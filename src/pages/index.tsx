@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           secondPokemon.data && (
             <>
               <div className='w-64 text-xl text-center rounded-md'>
-                <img
+                <Image
                   width={256}
                   height={256}
                   src={`${firstPokemon.data?.spriteUrl}`}
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
               </div>
               <h1 className='grid items-center justify-items-center'>VS</h1>
               <div className='w-64 text-xl text-center rounded-md '>
-                <img
+                <Image
                   width={256}
                   height={256}
                   src={`${secondPokemon.data?.spriteUrl}`}
