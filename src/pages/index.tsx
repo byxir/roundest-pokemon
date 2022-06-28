@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                 <Image
                   width={256}
                   height={256}
-                  src={`${firstPokemon.data?.sprites.front_default}`}
+                  src={`${firstPokemon.data?.spriteUrl}`}
                 />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
                 <Image
                   width={256}
                   height={256}
-                  src={`${secondPokemon.data?.sprites.front_default}`}
+                  src={`${secondPokemon.data?.spriteUrl}`}
                 />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>

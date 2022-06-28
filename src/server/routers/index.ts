@@ -10,8 +10,14 @@ export const appRouter = trpc
     async resolve({ input }) {
       const api = new PokemonClient()
 
-      const pokemon = await api.getPokemonById(input.id)
-      return { name: pokemon.name, sprites: pokemon.sprites, id: pokemon.id }
+      const pokemon = await prisma.pokemon.findFirst({
+        where: {
+          id: input.id,
+        },
+      })
+
+      if (!pokemon) throw new Error('no pokemon, sad :(')
+      return pokemon
     },
   })
   .mutation('cast-vote', {
@@ -22,7 +28,8 @@ export const appRouter = trpc
     async resolve({ input }) {
       const voteInDb = await prisma.vote.create({
         data: {
-          ...input,
+          votedAgainstId: input.votedAgainst,
+          votedForId: input.votedFor,
         },
       })
 
