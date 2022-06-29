@@ -28,6 +28,9 @@ const Home: NextPage = () => {
     setIds(getOptionsForVote())
   }
 
+  console.log(firstPokemon.data?.spriteUrl)
+  console.log(secondPokemon.data?.spriteUrl)
+
   return (
     <div className='grid items-center w-screen h-screen text-white justify-items-center'>
       <div className='grid grid-cols-3 p-8 border-2 rounded-lg max-h-96 border-primary'>
