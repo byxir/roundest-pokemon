@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           secondPokemon.data && (
             <>
               <div className='w-64 text-xl text-center rounded-md'>
-                <img src={firstImageUrl} />
+                <img className='w-64' src={firstImageUrl} />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
