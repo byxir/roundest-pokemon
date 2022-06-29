@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { getOptionsForVote } from '../utils/getRandomPokemon'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Home: NextPage = () => {
   const [ids, setIds] = useState(getOptionsForVote())
@@ -46,7 +47,7 @@ const Home: NextPage = () => {
           secondPokemon.data && (
             <>
               <div className='w-64 text-xl text-center rounded-md'>
-                <img src={firstImageUrl} className='w-64' />
+                <Image width={256} height={256} src={firstImageUrl} />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
@@ -58,7 +59,12 @@ const Home: NextPage = () => {
               </div>
               <h1 className='grid items-center justify-items-center'>VS</h1>
               <div className='w-64 text-xl text-center rounded-md '>
-                <img className='w-64' src={secondImageUrl} />
+                <Image
+                  width={256}
+                  height={256}
+                  className='w-64'
+                  src={secondImageUrl}
+                />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button

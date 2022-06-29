@@ -30,6 +30,11 @@ const Results = () => {
               (currentPokemon._count.votesFor +
                 currentPokemon._count.votesAgainst)) *
             100
+
+          const formattedSpriteUrl =
+            currentPokemon.spriteUrl.slice(0, 7) +
+            '/' +
+            currentPokemon.spriteUrl.slice(7)
           return (
             <div
               key={currentPokemon.id}
@@ -37,7 +42,12 @@ const Results = () => {
               <div className=''>
                 {allPokemon.data.indexOf(currentPokemon) + 1}
               </div>
-              <img className='w-16' src={currentPokemon.spriteUrl} />
+              <Image
+                width={64}
+                height={64}
+                className='w-16'
+                src={formattedSpriteUrl}
+              />
               <p>{currentPokemon.name}</p>
               <div className=''>
                 votesFor: {(percentage ? percentage : 0).toFixed(2)} %
