@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           secondPokemon.data && (
             <>
               <div className='w-64 text-xl text-center rounded-md'>
-                <Image width={256} height={256} src={firstImageUrl} />
+                <img src={firstImageUrl} />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
@@ -59,12 +59,7 @@ const Home: NextPage = () => {
               </div>
               <h1 className='grid items-center justify-items-center'>VS</h1>
               <div className='w-64 text-xl text-center rounded-md '>
-                <Image
-                  width={256}
-                  height={256}
-                  className='w-64'
-                  src={secondImageUrl}
-                />
+                <img className='w-64' src={secondImageUrl} />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
