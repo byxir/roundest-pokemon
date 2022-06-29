@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { getOptionsForVote } from '../utils/getRandomPokemon'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   const [ids, setIds] = useState(getOptionsForVote())
@@ -71,6 +72,15 @@ const Home: NextPage = () => {
               </div>
             </>
           )}
+      </div>
+      <div className='absolute grid w-full bottom-8 justify-items-center'>
+        <Link href='/results'>
+          <button
+            type='button'
+            className='inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+            Results
+          </button>
+        </Link>
       </div>
     </div>
   )
