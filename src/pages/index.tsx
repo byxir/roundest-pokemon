@@ -28,8 +28,8 @@ const Home: NextPage = () => {
     setIds(getOptionsForVote())
   }
 
-  const firstImageUrl = firstPokemon.data?.spriteUrl
-  const secondImageUrl = secondPokemon.data?.spriteUrl
+  const firstImageUrl = 'hi'
+  const secondImageUrl = 'hi'
 
   return (
     <div className='grid items-center w-screen h-screen text-white justify-items-center'>
