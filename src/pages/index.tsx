@@ -28,9 +28,6 @@ const Home: NextPage = () => {
     setIds(getOptionsForVote())
   }
 
-  console.log(firstPokemon.data?.spriteUrl)
-  console.log(secondPokemon.data?.spriteUrl)
-
   const firstImageUrl = firstPokemon.data?.spriteUrl
   const secondImageUrl = secondPokemon.data?.spriteUrl
 
