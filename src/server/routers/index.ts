@@ -34,6 +34,29 @@ export const appRouter = trpc
       return { success: true, vote: voteInDb }
     },
   })
+  .query('get-all-formatted-pokemon', {
+    async resolve() {
+      const allPokemon = await prisma.pokemon.findMany({
+        orderBy: {
+          votesFor: { _count: 'desc' },
+        },
+        select: {
+          id: true,
+          name: true,
+          spriteUrl: true,
+          _count: {
+            select: {
+              votesFor: true,
+              votesAgainst: true,
+            },
+          },
+        },
+      })
+      console.log(allPokemon)
+
+      return allPokemon
+    },
+  })
 
 // export type definition of API
 export type AppRouter = typeof appRouter

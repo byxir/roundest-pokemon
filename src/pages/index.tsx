@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                 <Image
                   width={256}
                   height={256}
-                  src={`${firstPokemon.data?.spriteUrl}`}
+                  src={`${firstPokemon.data.spriteUrl}`}
                 />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
                 <Image
                   width={256}
                   height={256}
-                  src={`${secondPokemon.data?.spriteUrl}`}
+                  src={`${secondPokemon.data.spriteUrl}`}
                 />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>
@@ -76,9 +76,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-// export async function getServerSideProps() {
-//   const [first, second] = getOptionsForVote()
-
-//   return { props: { first, second } }
-// }
