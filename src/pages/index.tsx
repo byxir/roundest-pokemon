@@ -31,6 +31,9 @@ const Home: NextPage = () => {
   console.log(firstPokemon.data?.spriteUrl)
   console.log(secondPokemon.data?.spriteUrl)
 
+  const firstImageUrl = firstPokemon.data?.spriteUrl
+  const secondImageUrl = secondPokemon.data?.spriteUrl
+
   return (
     <div className='grid items-center w-screen h-screen text-white justify-items-center'>
       <div className='grid grid-cols-3 p-8 border-2 rounded-lg max-h-96 border-primary'>
@@ -40,7 +43,7 @@ const Home: NextPage = () => {
           secondPokemon.data && (
             <>
               <div className='w-64 text-xl text-center rounded-md'>
-                <img src={firstPokemon.data.spriteUrl} className='w-64' />
+                <img src={firstImageUrl} className='w-64' />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
@@ -52,7 +55,7 @@ const Home: NextPage = () => {
               </div>
               <h1 className='grid items-center justify-items-center'>VS</h1>
               <div className='w-64 text-xl text-center rounded-md '>
-                <img className='w-64' src={secondPokemon.data.spriteUrl} />
+                <img className='w-64' src={secondImageUrl} />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
