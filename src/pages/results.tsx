@@ -37,7 +37,7 @@ const Results = () => {
               <div className=''>
                 {allPokemon.data.indexOf(currentPokemon) + 1}
               </div>
-              <Image width={64} height={64} src={currentPokemon.spriteUrl} />
+              <img className='w-16' src={currentPokemon.spriteUrl} />
               <p>{currentPokemon.name}</p>
               <div className=''>
                 votesFor: {(percentage ? percentage : 0).toFixed(2)} %

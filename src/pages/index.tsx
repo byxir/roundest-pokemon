@@ -1,7 +1,6 @@
 import { trpc } from '../utils/trpc'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { getOptionsForVote } from '../utils/getRandomPokemon'
 import { useState } from 'react'
 
@@ -38,11 +37,7 @@ const Home: NextPage = () => {
           secondPokemon.data && (
             <>
               <div className='w-64 text-xl text-center rounded-md'>
-                <Image
-                  width={256}
-                  height={256}
-                  src={`${firstPokemon.data.spriteUrl}`}
-                />
+                <img src={`${firstPokemon.data.spriteUrl}`} className='w-64' />
                 <div className='capitalize'>{firstPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
@@ -54,11 +49,7 @@ const Home: NextPage = () => {
               </div>
               <h1 className='grid items-center justify-items-center'>VS</h1>
               <div className='w-64 text-xl text-center rounded-md '>
-                <Image
-                  width={256}
-                  height={256}
-                  src={`${secondPokemon.data.spriteUrl}`}
-                />
+                <img className='w-64' src={`${secondPokemon.data.spriteUrl}`} />
                 <div className='capitalize'>{secondPokemon.data?.name}</div>
                 <div className='p-2'></div>
                 <button
