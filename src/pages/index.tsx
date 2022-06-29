@@ -29,9 +29,13 @@ const Home: NextPage = () => {
   }
 
   const firstImageUrl =
-    'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=80'
+    firstPokemon.data?.spriteUrl.slice(0, 7) +
+    '/' +
+    firstPokemon.data?.spriteUrl.slice(7)
   const secondImageUrl =
-    'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=80'
+    secondPokemon.data?.spriteUrl.slice(0, 7) +
+    '/' +
+    secondPokemon.data?.spriteUrl.slice(7)
 
   return (
     <div className='grid items-center w-screen h-screen text-white justify-items-center'>
