@@ -33,7 +33,10 @@ const Results = () => {
           return (
             <div
               key={currentPokemon.id}
-              className='grid grid-cols-[max-content_1fr_1fr] p-4 border-b items-center gap-4'>
+              className='grid grid-cols-[max-content_max-content_1fr_1fr] p-4 border-b items-center gap-4'>
+              <div className=''>
+                {allPokemon.data.indexOf(currentPokemon) + 1}
+              </div>
               <Image width={64} height={64} src={currentPokemon.spriteUrl} />
               <p>{currentPokemon.name}</p>
               <div className=''>
