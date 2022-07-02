@@ -13,8 +13,6 @@ const Home: NextPage = () => {
   const secondPokemon = trpc.useQuery(['get-pokemon-by-id', { id: second }])
   const voteMutation = trpc.useMutation(['cast-vote'])
 
-  if (firstPokemon.isLoading || secondPokemon.isLoading) return null
-
   const voteForRoundest = (selected: number) => {
     if (selected === first) {
       voteMutation.mutate({
@@ -41,43 +39,58 @@ const Home: NextPage = () => {
 
   return (
     <div className='grid items-center w-screen h-screen text-white justify-items-center'>
-      <div className='grid grid-cols-3 p-8 border-2 rounded-lg max-h-96 border-primary'>
-        {!firstPokemon.isLoading &&
-          firstPokemon.data &&
-          !secondPokemon.isLoading &&
-          secondPokemon.data && (
-            <>
-              <div className='w-64 text-xl text-center rounded-md'>
-                <img className='w-64' src={firstImageUrl} />
-                <div className='capitalize'>{firstPokemon.data?.name}</div>
-                <div className='p-2'></div>
-                <button
-                  type='button'
-                  onClick={() => voteForRoundest(firstPokemon.data.id)}
-                  className='inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
-                  Rounder
-                </button>
-              </div>
-              <h1 className='grid items-center justify-items-center'>VS</h1>
-              <div className='w-64 text-xl text-center rounded-md '>
-                <img className='w-64' src={secondImageUrl} />
-                <div className='capitalize'>{secondPokemon.data?.name}</div>
-                <div className='p-2'></div>
-                <button
-                  type='button'
-                  onClick={() => voteForRoundest(secondPokemon.data.id)}
-                  className='inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
-                  Rounder
-                </button>
-              </div>
-            </>
-          )}
+      <div className='grid grid-cols-3 p-2 border-2 rounded-lg sm:p-6 h-186 sm:h-auto border-primary md:w-836 md:h-420'>
+        <>
+          <div className='w-24 text-xl text-center rounded-md sm:w-48 md:w-64 grid grid-rows-[96px_20px_16px_36px] sm:grid-rows-[256px_36px_24px_36px]'>
+            <div className='w-24 sm:w-48 md:w-64'>
+              {firstPokemon.isSuccess && (
+                <img className='w-24 sm:w-48 md:w-64' src={firstImageUrl} />
+              )}
+            </div>
+            <div className='text-sm capitalize sm:text-xl'>
+              {firstPokemon.isSuccess && firstPokemon.data.name}
+            </div>
+            <div className='p-2'></div>
+            <button
+              type='button'
+              onClick={
+                firstPokemon.data
+                  ? () => voteForRoundest(firstPokemon.data.id)
+                  : () => {}
+              }
+              className='inline-flex items-center px-2 py-1 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm sm:px-4 sm:py-2 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-max h-9 justify-self-center'>
+              Rounder
+            </button>
+          </div>
+          <h1 className='grid items-center justify-items-center'>VS</h1>
+          <div className='w-24 text-xl text-center rounded-md sm:w-48 md:w-64 grid grid-rows-[96px_20px_16px_36px] sm:grid-rows-[256px_36px_24px_36px]'>
+            <div className='w-24 sm:w-48 md:w-64'>
+              {secondPokemon.isSuccess && (
+                <img className='w-24 sm:w-48 md:w-64' src={secondImageUrl} />
+              )}
+            </div>
+            <div className='text-sm capitalize sm:text-xl'>
+              {secondPokemon.isSuccess && secondPokemon.data.name}
+            </div>
+            <div className='p-2'></div>
+            <button
+              type='button'
+              onClick={
+                secondPokemon.data
+                  ? () => voteForRoundest(secondPokemon.data.id)
+                  : () => {}
+              }
+              className='inline-flex items-center px-2 py-1 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm sm:px-4 sm:py-2 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-max justify-self-center h-9'>
+              Rounder
+            </button>
+          </div>
+        </>
       </div>
       <div className='absolute grid w-full bottom-8 justify-items-center'>
         <Link href='/results'>
           <button
             type='button'
-            className='inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+            className='inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
             Results
           </button>
         </Link>

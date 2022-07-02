@@ -23,7 +23,16 @@ const Results = () => {
   if (!allPokemon.isSuccess) return null
 
   return (
-    <div className='grid w-screen h-full p-10 text-white justify-items-center'>
+    <div className='grid grid-rows-[auto auto] gap-10 w-screen h-full p-2 text-white justify-items-center'>
+      <div className='grid pt-8 sm:pt-0 sm:absolute sm:left-8 sm:top-1/2 justify-items-center'>
+        <Link href='/'>
+          <button
+            type='button'
+            className='inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+            Voting
+          </button>
+        </Link>
+      </div>
       <div className='max-w-6xl border'>
         {allPokemon.data.map((currentPokemon: any) => {
           const percentage =
@@ -39,7 +48,7 @@ const Results = () => {
           return (
             <div
               key={currentPokemon.id}
-              className='grid grid-cols-[max-content_max-content_1fr_1fr] p-4 border-b items-center gap-4'>
+              className='grid grid-cols-[max-content_max-content_1fr_1fr] p-2 sm:p-4 border-b items-center gap-4'>
               <div className=''>
                 {allPokemon.data.indexOf(currentPokemon) + 1}
               </div>
@@ -51,15 +60,6 @@ const Results = () => {
             </div>
           )
         })}
-      </div>
-      <div className='absolute grid left-8 top-1/2 justify-items-center'>
-        <Link href='/'>
-          <button
-            type='button'
-            className='inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
-            Voting
-          </button>
-        </Link>
       </div>
     </div>
   )
