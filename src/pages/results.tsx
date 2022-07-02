@@ -23,7 +23,7 @@ const Results = () => {
   if (!allPokemon.isSuccess) return null
 
   return (
-    <div className='grid grid-rows-[auto auto] gap-10 w-screen h-full p-2 text-white justify-items-center'>
+    <div className='grid grid-rows-[auto auto] gap-10 w-full h-full text-white justify-items-center'>
       <div className='grid pt-8 sm:pt-0 sm:fixed sm:left-8 sm:top-1/2 justify-items-center'>
         <Link href='/'>
           <button
